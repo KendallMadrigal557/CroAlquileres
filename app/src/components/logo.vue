@@ -11,7 +11,7 @@
   }
   </script>
 
-  <style>
+  <style scoped>
   .top-bar {
     position: fixed;
     top: 0;
