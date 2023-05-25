@@ -1,10 +1,15 @@
 <template>
     <div>
-        <logo></logo>
-        <navbar></navbar>
-        <cardDepartment></cardDepartment>
+      <logo></logo>
+      <navbar></navbar>
+      <div class="card-department-container">
+        <cardDepartment v-for="index in 10" :key="index"></cardDepartment>
+      </div>
     </div>
-</template>
+  </template>
+  
+
+  
 
 <script>
 import logo from '@/components/logo.vue';
@@ -22,4 +27,14 @@ export default {
 
 <style lang="scss" scoped>
 
+</style>
+
+<style scoped>
+.card-department-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 60px;
+}
 </style>

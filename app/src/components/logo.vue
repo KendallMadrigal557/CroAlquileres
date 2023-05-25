@@ -3,7 +3,7 @@
     <div class="logo-container">
       <img class="logo" src="../assets/croalquileres_logo.png" alt="Logo">
     </div>
-    <router-link to="/login" class="login-button">Login</router-link>
+    
   </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  z-index: 3;
 }
 
 .logo-container {

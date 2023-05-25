@@ -28,7 +28,7 @@
             <li><a href="#">Portfolio</a></li>
             <li><a href="#">Overview</a></li>
             <li><a href="#">Shortcuts</a></li>
-            <li><a href="#">Feedback</a></li>
+            <li><router-link to="/login" class="login-button">Login</router-link></li>
         </ul>
     </nav>
 </template>
@@ -36,6 +36,7 @@
 <script>
 import $ from 'jquery';
 import logo from '@/components/logo.vue';
+
 
 export default {
   name: 'NavBar',
