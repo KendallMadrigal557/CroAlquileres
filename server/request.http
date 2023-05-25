@@ -1,0 +1,38 @@
+###
+POST http://localhost:3001/api/deparment HTTP/1.1
+Content-Type: application/json
+
+{
+    "place": "Apartment B",
+    "price": 1500,
+    "rooms": 3,
+    "location": "City Y",
+    "features": "Balcony, Parking",
+    "status": false,
+    "description": "Spacious apartment with parking facility",
+    "services": "Electricity, Water, Gas"
+  }
+
+###
+GET  http://localhost:3001/api/deparment HTTP/1.1
+
+###
+GET  http://localhost:3001/api/deparment/646e7b0062dfb6bceac86c60 HTTP/1.1
+
+###
+PUT http://localhost:3001/api/deparment/646e7b0062dfb6bceac86c60 HTTP/1.1
+Content-Type: application/json
+
+{
+    "place": "Apartment A",
+    "price": 1500,
+    "rooms": 3,
+    "location": "City Y",
+    "features": "Balcony, Parking",
+    "status": false,
+    "description": "Spacious apartment with parking facility",
+    "services": "Electricity, Water, Gas"
+  }
+
+###
+DELETE  http://localhost:3001/api/deparment/646e7b0062dfb6bceac86c60 HTTP/1.1
