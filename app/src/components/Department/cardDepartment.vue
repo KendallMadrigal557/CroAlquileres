@@ -2,7 +2,7 @@
     <div class="page-container">
       <div class="card-container">
         <div class="card">
-          <img src="../img/ejemplo.jpg" alt="Imagen del lugar" class="card-image">
+          <img src="../../assets/ejemplo.jpg" alt="Imagen del lugar" class="card-image">
           <div class="card-details">
             <h2 class="card-title">Departamento las 3 maravillas</h2>
             <p class="card-price">2000$</p>

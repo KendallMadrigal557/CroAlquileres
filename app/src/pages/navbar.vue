@@ -1,4 +1,5 @@
 <template>
+  <logo></logo>
     <div class="btn">
         <span class="fas fa-bars"></span>
     </div>
@@ -34,9 +35,13 @@
 
 <script>
 import $ from 'jquery';
+import logo from '@/components/logo.vue';
 
 export default {
   name: 'NavBar',
+  components: {
+    logo
+  },
   mounted() {
     //codigo copiado de ejemplos de internet
     $('.btn').click(function(){
