@@ -10,7 +10,6 @@ import cardDepartment from '@/components/Department/cardDepartment.vue';
         components : {
             cardDepartment
         }
-        
     }
 </script>
 

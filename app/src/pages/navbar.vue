@@ -27,7 +27,7 @@
             </li>
             <li><a href="#">Portfolio</a></li>
             <li><a href="#">Overview</a></li>
-            <li><a href="#">Shortcuts</a></li>
+            <li><router-link to="/register" class="register-button">Registrarse</router-link></li>
             <li><router-link to="/login" class="login-button">Login</router-link></li>
         </ul>
     </nav>
