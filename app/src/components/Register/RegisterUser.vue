@@ -1,16 +1,18 @@
 <template>
-    <div class="main-container">
-        <form @submit="registerUser">
-            <label for="name" class="form-label">Nombre:</label>
-            <input v-model="name" type="text" placeholder="Joe Doe" required>
-            <label for="email" class="form-label">Correo electrónico:</label>
-            <input v-model="email" type="email" placeholder="correo@example.com" required>
-            <label for="password" class="form-label">Contraseña:</label>
-            <input v-model="password" type="password" placeholder="8 caracteres requeridos" required pattern=".{8,}">
-            <label for="confirm_password" class="form-label">Confirmar contraseña:</label>
-            <input v-model="confirm_password" type="password" placeholder="8 caracteres requeridos" required pattern=".{8,}">
-            <button type="submit">Registrarse</button>
-        </form>
+    <div class="container">
+        <div class="form-container">
+            <form @submit="registerUser" class="register-form">
+                <label for="name" class="input-label">Nombre:</label>
+                <input v-model="name" type="text" placeholder="Joe Doe" required>
+                <label for="email" class="input-label">Correo electrónico:</label>
+                <input v-model="email" type="email" placeholder="correo@example.com" required>
+                <label for="password" class="input-label">Contraseña:</label>
+                <input v-model="password" type="password" placeholder="8 caracteres requeridos" required pattern=".{8,}">
+                <label for="confirm_password" class="input-label">Confirmar contraseña:</label>
+                <input v-model="confirm_password" type="password" placeholder="8 caracteres requeridos" required pattern=".{8,}">
+                <button type="submit" class="submit-button">Registrarse</button>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -62,49 +64,90 @@ export default {
     }
 };
 </script>
-
 <style scoped>
-.main-container {
-    position: relative;
-    max-width: 400px;
-    margin: 80px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-}
-
-
-form {
+.container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+    padding-top: 50px;
 }
 
-input {
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 200px;
+.form-container {
+    width: 400px;
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-button {
-    padding: 8px 20px;
-    background-color: #4caf50;
-    color: white;
+.input-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
     border: none;
+    outline: none;
+    width: 100%;
+    padding: 16px 10px;
+    background-color: rgb(247, 243, 243);
+    border-radius: 10px;
+    box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015), 100px 100px 80px rgba(0, 0, 0, 0.03);
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    margin-top: 12px;
+    padding: 16px 10px;
+    background-color: rgb(23, 111, 211);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #45a049;
+.submit-button:hover {
+    background-color: rgb(0, 84, 158);
 }
 
-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+input[type="file"] {
+    display: none;
+}
+
+.file-input-container {
+    position: relative;
+}
+
+.file-input-container input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-input-label {
+    background-color: rgb(247, 243, 243);
+    border-radius: 10px;
+    padding: 16px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.file-input-label:hover {
+    background-color: rgb(230, 230, 230);
 }
 </style>

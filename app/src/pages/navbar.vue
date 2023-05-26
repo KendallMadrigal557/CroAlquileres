@@ -1,36 +1,28 @@
 <template>
   <logo></logo>
+  <div class="navbar-container">
     <div class="btn">
         <span class="fas fa-bars"></span>
     </div>
     <nav class="sidebar">
-        <div class="text">Side Menu</div>
+        <div class="text">Menu</div>
         <ul>
-            <li class="active"><a href="#">Dashboard</a></li>
+            <li class="active"><router-link to="/" class="main-button">Home</router-link></li>
             <li>
-                <a href="#" class="feat-btn">Features
+                <a href="#" class="feat-btn">Departamentos
                     <span class="fas fa-caret-down first"></span>
                 </a>
                 <ul class="feat-show">
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Elements</a></li>
+                    <li><router-link to="/register-department" class="register-department-button">Registrar departamento</router-link></li>
+                    <li><router-link to="/department" class="register-department-button">Departamentos en alquiler</router-link></li>
                 </ul>
             </li>
-            <li>
-                <a href="#" class="serv-btn">Services
-                    <span class="fas fa-caret-down second"></span>
-                </a>
-                <ul class="serv-show">
-                    <li><a href="#">App Design</a></li>
-                    <li><a href="#">Web Design</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Overview</a></li>
+          
             <li><router-link to="/register" class="register-button">Registrarse</router-link></li>
             <li><router-link to="/login" class="login-button">Login</router-link></li>
         </ul>
     </nav>
+  </div>
 </template>
 
 <script>
@@ -65,4 +57,13 @@ export default {
 </script>
 <style scoped>
 @import '../assets/navbar.css';
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
 </style>

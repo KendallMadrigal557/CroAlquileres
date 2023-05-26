@@ -60,12 +60,15 @@ button:hover::before {
   width: 100%;
 }
 
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
+  margin: 0 auto; 
+  max-width: 1200px; 
+  padding: 10px; 
+  box-sizing: border-box; 
 }
 
 .card {

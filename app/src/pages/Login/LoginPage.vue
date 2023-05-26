@@ -1,24 +1,24 @@
 <template>
-  <div class="main-container">
   <NavBar></NavBar>
-  <div class="login-container">
-    <h2 class="login-title">Inciar sesión</h2>
-    <form @submit.prevent="login" class="login-form">
-      <div class="form-group">
-        <label for="username" class="form-label">Username:</label>
-        <input type="text" id="username" v-model="username" class="form-input" placeholder="correo@gmail.com" required>
-      </div>
-      <div class="form-group">
-        <label for="password" class="form-label">Password:</label>
-        <input type="password" id="password" v-model="password" class="form-input" placeholder="Contraseña" required>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="login-button">Inciar sesión</button>
-      </div>
-    </form>
-    <div v-if="error" class="error">{{ error }}</div>
+  <div class="container">
+    <div class="form-container">
+      <h2 class="input-label">Iniciar sesión</h2>
+      <form @submit.prevent="login">
+        <div class="form-group">
+          <label for="username" class="input-label">Username:</label>
+          <input type="text" id="username" v-model="username" placeholder="correo@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password" class="input-label">Password:</label>
+          <input type="password" id="password" v-model="password" placeholder="Contraseña" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="submit-button">Iniciar sesión</button>
+        </div>
+      </form>
+      <div v-if="error" class="error">{{ error }}</div>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -51,95 +51,63 @@ export default {
 </script>
 
 <style scoped>
-
-.main-container {
-  position: relative;
-}
-
-.login-container {
-  max-width: 400px;
-  margin: 80px auto; 
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f5f5f5;
-  position: absolute;
-  top: 0; 
-  left: 0; 
-  right: 0; 
-}
-
-.login-title {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.login-form {
+.container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-top: 50px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.form-container {
+  width: 400px;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-label {
+.input-label {
   font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
+  margin-bottom: 8px;
+  display: block;
 }
 
-.form-input {
-  margin-left: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+  border: none;
   outline: none;
-  box-sizing: border-box;
-}
-
-button {
-  padding: 15px 25px;
-  border: unset;
-  border-radius: 15px;
-  color: #233b73;
-  z-index: 1;
-  background: #f8f2ee;
-  position: relative;
-  font-weight: 1000;
-  font-size: 17px;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms;
-  overflow: hidden;
-}
-
-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0;
-  border-radius: 15px;
-  background-color: #212121;
-  z-index: -1;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms
-}
-
-button:hover {
-  color: #f2f2f7;
-}
-
-button:hover::before {
   width: 100%;
+  padding: 16px 10px;
+  background-color: rgb(247, 243, 243);
+  border-radius: 10px;
+  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015), 100px 100px 80px rgba(0, 0, 0, 0.03);
+  margin-bottom: 10px;
+}
+
+.submit-button {
+  margin-top: 12px;
+  padding: 16px 10px;
+  background-color: rgb(23, 111, 211);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: rgb(0, 84, 158);
 }
 
 .error {
   color: red;
-  margin-top: 10px;
 }
 </style>
