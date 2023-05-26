@@ -3,11 +3,15 @@ const dbconnect = require('./config/db.config');
 const app = express();
 const port = process.env.PORT || 3001;
 const departmentRouter = require("./routes/department.routes");
+const userRouter = require("./routes/user.routes")
 const multer = require('multer');
 const path = require('path');
 
 app.use(express.json());
+
 app.use('/api', departmentRouter);
+app.use('/api',userRouter )
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 

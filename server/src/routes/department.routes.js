@@ -44,7 +44,6 @@ router.post('/department', multerConfig.single('image'), validateDepartentData, 
         .catch((error) => res.json({ message: error }));
 });
 
-// Obtener todos los departamentos
 router.get('/department', (req, res) => {
     departmentSchema
         .find()
@@ -53,7 +52,6 @@ router.get('/department', (req, res) => {
 });
 
 
-// Obtener un departamento por su ID
 router.get('/department/:id', (req, res) => {
     const { id } = req.params;
     departmentSchema
@@ -67,7 +65,6 @@ router.get('/department/:id', (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
-// Actualizar un departamento por su ID
 router.put('/department/:id', validateDepartentData, (req, res) => {
     const { id } = req.params;
     const { place, price, rooms, location, features, status, description, services } = req.body;
@@ -82,7 +79,6 @@ router.put('/department/:id', validateDepartentData, (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
-// Eliminar un departamento por su ID
 router.delete('/department/:id', (req, res) => {
     const { id } = req.params;
     departmentSchema
