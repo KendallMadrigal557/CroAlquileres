@@ -6,14 +6,14 @@
             <label for="email" class="form-label">Correo electrónico:</label>
             <input v-model="email" type="email" placeholder="correo@example.com" required>
             <label for="password" class="form-label">Contraseña:</label>
-            <input v-model="password" type="password" placeholder="8 caracteres requeridos" required>
+            <input v-model="password" type="password" placeholder="8 caracteres requeridos" required pattern=".{8,}">
             <label for="confirm_password" class="form-label">Confirmar contraseña:</label>
-            <input v-model="confirm_password" type="password" placeholder="8 caracteres requeridos" required>
+            <input v-model="confirm_password" type="password" placeholder="8 caracteres requeridos" required pattern=".{8,}">
             <button type="submit">Registrarse</button>
         </form>
     </div>
 </template>
-  
+
 <script>
 import UserService from '@/services/user.service';
 
