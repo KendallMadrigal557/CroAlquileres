@@ -7,6 +7,7 @@
         <div class="text">Side Menu</div>
         <ul>
             <li class="active"><a href="#">Dashboard</a></li>
+            <li><router-link to="/user" class="login-button">Users</router-link></li>
             <li>
                 <a href="#" class="feat-btn">Features
                     <span class="fas fa-caret-down first"></span>

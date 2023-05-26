@@ -1,28 +1,33 @@
 <template>
   <div class="main-container">
-  <NavBar></NavBar>
-  <div class="login-container">
-    <h2 class="login-title">Inciar sesión</h2>
-    <form @submit.prevent="login" class="login-form">
-      <div class="form-group">
-        <label for="username" class="form-label">Username:</label>
-        <input type="text" id="username" v-model="username" class="form-input" placeholder="correo@gmail.com" required>
-      </div>
-      <div class="form-group">
-        <label for="password" class="form-label">Password:</label>
-        <input type="password" id="password" v-model="password" class="form-input" placeholder="Contraseña" required>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="login-button">Inciar sesión</button>
-      </div>
-    </form>
-    <div v-if="error" class="error">{{ error }}</div>
+    <NavBar></NavBar>
+    <div class="login-container">
+      <h2 class="login-title">Inciar sesión</h2>
+      <form @submit.prevent="login" class="login-form">
+        <div class="form-group">
+          <label for="username" class="form-label">Username:</label>
+          <input type="text" id="username" v-model="username" class="form-input" placeholder="correo@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password" class="form-label">Password:</label>
+          <input type="password" id="password" v-model="password" class="form-input" placeholder="Contraseña" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="login-button">Inciar sesión</button>
+        </div>
+        <label for="username" class="form-label">No tiene cuenta?</label>
+        <div class="form-group">
+          <button @click="redirectPage" type="submit" class="login-button">Crear Cuenta</button>
+        </div>
+      </form>
+      <div v-if="error" class="error">{{ error }}</div>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 import NavBar from '../navbar.vue'
+import router from '@/router/router';
 export default {
   data() {
     return {
@@ -32,6 +37,9 @@ export default {
     };
   },
   methods: {
+    redirectPage(){
+      router.push('/create-user');
+    },
     login() {
 
       if (!this.username || !this.password) {
@@ -51,22 +59,21 @@ export default {
 </script>
 
 <style scoped>
-
 .main-container {
   position: relative;
 }
 
 .login-container {
   max-width: 400px;
-  margin: 80px auto; 
+  margin: 80px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f5f5f5;
   position: absolute;
-  top: 0; 
-  left: 0; 
-  right: 0; 
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .login-title {
