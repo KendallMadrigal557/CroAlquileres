@@ -31,14 +31,12 @@ export default {
         async registerUser(event) {
             event.preventDefault();
 
-            // Validar el nombre
             const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
             if (!nameRegex.test(this.name)) {
                 console.error('Error: El nombre solo puede contener letras y espacios.');
                 return;
             }
 
-            // Validar que la contraseña y la confirmación sean iguales
             if (this.password !== this.confirm_password) {
                 console.error('Error: Las contraseñas no coinciden.');
                 return;
@@ -53,9 +51,12 @@ export default {
                 };
                 const createdUser = await userService.createUser(newUser);
                 console.error('User registered:', createdUser);
+                alert('Se registró correctamente.')
 
             } catch (error) {
                 console.error('Error registering user:', error);
+                alert('Error: No se logró registrar. Por favor, revise sus datos.')
+
             }
         }
     }
