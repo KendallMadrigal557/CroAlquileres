@@ -17,7 +17,7 @@ const fileFilter = (req, file, cb) => {
   const fileExtension = file.originalname.split('.').pop();
 
   if (allowedExtensions.includes(fileExtension)) {
-    cb(null, true); // Acepta el archivo
+    cb(null, true); 
   } else {
     cb(new Error('El formato del archivo no es válido. Se permiten solo archivos JPG, PNG y JPEG.'), false); // Rechaza el archivo con el error
   }
