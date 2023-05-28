@@ -117,9 +117,9 @@ nav ul li a {
 }
 
 nav ul li.active a {
-    color: cyan;
+    color: #698e53;
     background: #1e1e1e;
-    border-left-color: cyan
+    border-left-color: #698e53;
 }
 
 nav ul li a:hover {
@@ -157,7 +157,7 @@ nav ul li.active ul li a {
 }
 
 nav ul ul li a:hover {
-    color: cyan !important;
+    color: #698e53 !important;
     background: #1e1e1e !important
 }
 

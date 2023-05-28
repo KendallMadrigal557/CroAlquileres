@@ -92,7 +92,8 @@ select {
 .submit-button {
   margin-top: 12px;
   padding: 16px 10px;
-  background-color: rgb(23, 111, 211);
+  background: rgb(80,106,131);
+  background: linear-gradient(90deg, rgba(80,106,131,1) 0%, rgba(99,131,80,1) 50%, rgba(80,106,131,1) 100%);
   color: #fff;
   text-transform: uppercase;
   font-weight: bold;
@@ -103,8 +104,9 @@ select {
   cursor: pointer;
 }
 
-.submit-button:hover {
-  background-color: rgb(0, 84, 158);
+.submit-button:hover {  
+  background: rgb(80,106,131);
+  background: linear-gradient(90deg, rgba(80,106,131,1) 0%, rgba(99,131,80,1) 50%, rgba(80,106,131,1) 100%);
 }
 
 .error {

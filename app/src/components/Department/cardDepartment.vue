@@ -1,16 +1,15 @@
 <template>
-      <div class="card-container">
+      <li class="cards_item">
         <div class="card">
-          <img src="../../assets/ejemplo.jpg" alt="Imagen del lugar" class="card-image">
-          <div class="card-details">
-            <h2 class="card-title">Departamento las 3 maravillas</h2>
-            <p class="card-price">2000$</p>
-            <p class="card-location">Puntarenas, Costa Rica</p>
-            <button type="submit" class="login-button">Ver detalles</button>
+          <div class="card_image"><img src="../../assets/ejemplo.jpg" /></div>
+          <div class="card_content">
+            <h2 class="card_title">Las 3 maravillas</h2>
+            <p class="card_text">Puntarenas, Costa Rica</p>
+            <button class="button card_btn">Ver detalles</button>
           </div>
         </div>
-      </div>
-  </template>
+      </li>
+</template>
 
 <script>
 export default {
@@ -21,91 +20,114 @@ export default {
 
 
 <style scoped>
-button {
-  padding: 15px 25px;
-  border: unset;
-  border-radius: 15px;
-  color: #233b73;
-  z-index: 2; /* Ajusta el z-index del botón */
-  background: #f8f2ee;
-  position: relative;
-  font-weight: 1000;
-  font-size: 17px;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms;
-  overflow: hidden;
+/* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0;
-  border-radius: 15px;
-  background-color: #212121;
-  z-index: -1;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-  transition: all 250ms;
+html {
+  background-color: #ecf9ff;
 }
 
-button:hover {
-  color: #f2f2f7;
+body {
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
 }
 
-button:hover::before {
+
+h1 {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.button {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
   width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
 }
 
-.card-container {
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+
+.cards_item {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 0 auto; 
-  max-width: 1200px; 
-  padding: 10px; 
-  box-sizing: border-box; 
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 25%;
+  }
 }
 
 .card {
-  width: 300px;
-  height: auto;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  margin: 10px;
-  flex: 0 0 auto; 
-}
-
-.card-image {
-  width: 100%;
-  margin-bottom: 10px;
-  border-radius: 2px;
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
-.card-image img {
-  width: 100%;
-  height: auto;
+.card_content {
+  padding: 1rem;
+  background: rgb(80,106,131);
+  background: linear-gradient(90deg, rgba(80,106,131,1) 0%, rgba(99,131,80,1) 50%, rgba(80,106,131,1) 100%);
 }
 
-.card-title {
-  font-size: 16px;
-  margin: 0;
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
 }
 
-.card-price {
-  font-size: 14px;
-  margin: 0;
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
 }
 
-.card-location {
-  font-size: 14px;
-  margin: 0;
-  color: #888;
+.made_by {
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
 }
 </style>

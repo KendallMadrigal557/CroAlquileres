@@ -1,51 +1,26 @@
 <template>
   <navbar></navbar>
-  <div class="container">
-    <div class="box">
-      <div class="image-overlay">
-        <img src="../assets/pexels-sevenstorm-juhaszimrus-439391.jpg" alt="Imagen 1">
-        <div class="overlay"></div>
-        <div class="text-overlay">
-          <!--<p>Bienvenido a nuestra página de alquiler de departamentos, el destino perfecto
-            para encontrar tu hogar ideal. Nuestra plataforma se especializa en ofrecer
-            una amplia variedad de departamentos de alta calidad, diseñados para adaptarse
-            a tus necesidades y preferencias. Ya sea que estés buscando un acogedor
-            apartamento para una sola persona o un espacioso piso familiar, aquí encontrarás
-            una selección diversa y actualizada de opciones en las ubicaciones más atractivas.
-            Nuestro objetivo es brindarte una experiencia sencilla y eficiente para encontrar tu nuevo hogar.</p>-->
-        </div>
+  <div>
+    <section class="hero">
+      <div class="background-image" :style="backgroundStyle"></div>
+      <div class="hero-content-area">
+        <h1>CroAlquileres</h1>
+        <h3>La mejor pagina en busqueda de departamentos</h3>
       </div>
-    </div>
+    </section>
 
-    <div class="box">
-      <div class="image-overlay">
-        <img src="../assets/pexels-pixabay-276724.jpg" alt="Imagen 2">
-        <div class="overlay"></div>
-        <div class="text-overlay">
-          <!-- <p>En nuestra página, podrás explorar una amplia gama 
-            de departamentos de diferentes tamaños, estilos y 
-            precios. Utiliza nuestras herramientas de búsqueda 
-            avanzada para filtrar las opciones según tus requisitos 
-            específicos, como el número de habitaciones, baños, área, 
-            comodidades, entre otros. Además, nuestro 
-            equipo de atención al cliente está siempre disponible 
-            para responder cualquier pregunta que puedas tener y 
-            brindarte asesoramiento personalizado durante todo el proceso de búsqueda y alquiler.</p>-->
-        </div>
-      </div>
-    </div>
-
-    <div class="box">
-      <div class="image-overlay">
-        <img src="../assets/paul-szewczyk-nI4aC1kaTRc-unsplash.jpg" alt="Imagen 3">
-        <div class="overlay"></div>
-        <div class="text-overlay">
-        <!--<p>Confía en nuestra página para encontrar tu próximo hogar 
-            y disfruta de la tranquilidad de saber que estás trabajando 
-            con una plataforma confiable y eficiente.</p>-->
-        </div>
-      </div>
-    </div>
+    <section class="information">
+      <h3 class="title">Información personal:</h3>
+      <p>Soy Kendall Madrigal Araya, tengo 19 años y soy estudiante del Colegio Universitario de Cartago, actualmente estudiando TI 
+        este es un proyecto de Progrmación V en cual estuve aplicando algunos conocimientos de VUE
+      </p>
+      <hr>
+    </section>
+    
+    <footer>
+      <!--Template made by Pardeep Singh-->
+      <p>Project made by Kendall Madrigal</p>
+    </footer>
   </div>
 </template>
 <script>
@@ -54,87 +29,358 @@ import navbar from './navbar.vue';
 export default {
   components: {
     navbar
+  },
+  data() {
+    return {
+      backgroundStyle: {
+        backgroundImage: "url(https://images.unsplash.com/photo-1592738286436-5104ffdc8dd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80)"
+      }
+    };
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.container {
-  margin-top: 100px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.box {
-  height: 100%;
+html {
+  font: normal 16px sans-serif;
+  color: #555;
+}
+
+ul,
+nav {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  opacity: 0.75;
+  margin: 0 15px;
+  color: white;
+  cursor: pointer;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+a.btn {
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  background-color: #3f51b5;
+  opacity: 1;
+  margin-top: 10px;
+  color: white
+}
+
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 100px;
+}
+
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 35px 100px 0;
+  -webkit-animation: 1s fadein 0.5s forwards;
+  animation: 1s fadein 0.5s forwards;
+  opacity: 0.5;
+  color: white;
+}
+
+@-webkit-keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
+
+header h2 {
+  font-family: "Quicksand, sans-serif";
+  color: white;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: -15px;
+}
+
+header nav li {
+  margin: 0 15px;
+  color: white;
+}
+
+
+
+.hero {
   position: relative;
-  overflow: hidden;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  color: white;
 }
 
-.box .image-overlay {
-  position: relative;
-}
-
-.box .image-overlay .overlay {
+.hero .background-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  background-size: cover;
+  z-index: -1;
+  background-color: #80a3db;
+  -webkit-animation: 15s change 1s forwards;
+  animation: 15s change 1s forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-position: center;
+
 }
 
-.box .image-overlay img {
+@keyframes change {
+  0% {
+    background-image: url(https://images.unsplash.com/photo-1592738286436-5104ffdc8dd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80);
+  }
+
+  25% {
+    background-image: url(https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  }
+
+  50% {
+    background-image: url(https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+
+  }
+
+  75% {
+    background-image: url(https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+
+  }
+
+  100% {
+    background-image: url(https://images.pexels.com/photos/323772/pexels-photo-323772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+
+  }
+}
+
+.hero h1 {
+  font: bold 60px "Open Sans", sans-serif;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.hero h3 {
+  font: normal 28px "Open Sans", sans-serif;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.hero a.btn {
+  padding: 20px 46px;
+}
+
+.hero-content-area {
+  opacity: 0;
+  margin-top: 100px;
+  -webkit-animation: 1s slidefade 1s forwards;
+  animation: 1s slidefade 1s forwards;
+}
+
+@-webkit-keyframes slidefade {
+  100% {
+    opacity: 1;
+    margin: 0;
+  }
+}
+
+@keyframes slidefade {
+  100% {
+    opacity: 1;
+    margin: 0;
+  }
+}
+
+
+.grid {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-.box .text-overlay {
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+hr {
+  width: 100%;
+  height: 2px;
+  background-color: #3f51b5;
+  border: 0;
+  margin-bottom: 50px;
+}
+
+
+
+@media (max-width: 800px) {
+
+  .hero {
+    min-height: 600px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero h3 {
+    font-size: 24px;
+  }
+
+  .hero a.btn {
+    padding: 15px 40px;
+  }
+
+}
+@media (max-width: 1000px) {
+  header {
+    padding: 20px 50px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  header h2 {
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 700px) {
+
+footer {
+  padding: 80px 15px;
+}
+
+}
+section h3.title {
+  text-transform: capitalize;
+  font: bold 32px "Open Sans", sans-serif;
+  margin-bottom: 30px;
   text-align: center;
-  z-index: 2;
 }
 
-.box .image-text {
-  font-size: 14px;
-  line-height: 1.5;
+
+.information .grid li {
+  height: 350px;
+  padding: 20px;
+  background-clip: content-box;
+  background-size: cover;
+  background-position: center;
+}
+
+.information .grid li.small {
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+}
+
+
+
+
+
+
+
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
   color: #fff;
-  max-width: 90%; 
+  background-color: #414a4f;
+  padding: 60px 0;
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin-top: 50px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .box .image-text {
-    font-size: 5px; 
-  }
+footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 25px;
+  font-size: 32px;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .container {
-    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr)); 
-  }
-  .box .image-text {
-    font-size: 5px; 
-  }
+footer ul li {
+  margin: 0 8px;
 }
 
-@media (min-width: 1025px) {
-  .container {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  }
-  .box .image-text {
-    font-size: 5px; 
-  }
+footer ul li:first-child {
+  margin-left: 0;
 }
+
+footer ul li:last-child {
+  margin-right: 0;
+}
+
+footer p {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+footer p a {
+  color: #fff;
+}
+
+
 </style>
