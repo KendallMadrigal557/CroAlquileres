@@ -39,9 +39,6 @@ export default {
         return;
       }
 
-      // si en el server valida lo del login, aqui lo puede llamar y pasarle los datos
-      //para eso se hace con services. Es otra carpeta que quedaria en 'src/services/login.services.js'
-      // y asi con cada consulta al backend
     }
   },
   components: {

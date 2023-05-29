@@ -120,12 +120,14 @@ header {
 
 @-webkit-keyframes fadein {
   100% {
+    background: linear-gradient(rgba(5,7,12, 0.75),rgba(5,7,12, 0.75));
     opacity: 1;
   }
 }
 
 @keyframes fadein {
   100% {
+    background: linear-gradient(rgba(5,7,12, 0.75),rgba(5,7,12, 0.75));
     opacity: 1;
   }
 }
@@ -150,6 +152,7 @@ header nav li {
 
 
 .hero {
+  background: linear-gradient(rgba(5,7,12, 0.75),rgba(5,7,12, 0.75));
   position: relative;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -222,6 +225,7 @@ header nav li {
   margin-top: 100px;
   -webkit-animation: 1s slidefade 1s forwards;
   animation: 1s slidefade 1s forwards;
+
 }
 
 @-webkit-keyframes slidefade {
@@ -326,13 +330,6 @@ section h3.title {
   -ms-flex-preferred-size: 30%;
   flex-basis: 30%;
 }
-
-
-
-
-
-
-
 
 footer {
   display: -webkit-box;
