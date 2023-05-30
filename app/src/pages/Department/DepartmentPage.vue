@@ -3,15 +3,18 @@
     <div  class="card-department-container">
         <cardDepartment v-for="index in 10" :key="index"></cardDepartment>
     </div>
+    <footerComponent></footerComponent>
 </template>
 
 <script>
 import cardDepartment from '@/components/Department/cardDepartment.vue';
 import navbar from '../navbar.vue';
+import footerComponent from '../footer.vue'
     export default {
         components : {
             cardDepartment,
-            navbar
+            navbar,
+            footerComponent
         }
     }
 </script>

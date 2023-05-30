@@ -1,7 +1,10 @@
 <template>
   <div class="top-bar">
     <div class="logo-container">
-      <img class="logo" src="../assets/croalquileres_logo.png" alt="Logo">
+      <router-link to="/" class="main-button">
+        <img class="logo" src="../assets/croalquileres_logo.png" alt="Logo">
+      </router-link>
+      
     </div>
     
   </div>

@@ -97,17 +97,18 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Cambia height por min-height */
+    min-height: 100vh; 
     padding-top: 50px;
+    padding-bottom: 30px;
 }
 
 .form-container {
     width: 400px;
     padding: 30px;
-    margin-top: 50px; /* Cambia el valor del margin-top según sea necesario */
+    margin-top: 50px; 
     border-radius: 20px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
 }
 
 .input-label {

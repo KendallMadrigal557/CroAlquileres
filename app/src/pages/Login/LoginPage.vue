@@ -19,10 +19,12 @@
       <div v-if="error" class="error">{{ error }}</div>
     </div>
   </div>
+  <footerComponent></footerComponent>
 </template>
 
 <script>
 import NavBar from '../navbar.vue'
+import footerComponent from '../footer.vue'
 export default {
   data() {
     return {
@@ -42,7 +44,8 @@ export default {
     }
   },
   components: {
-    NavBar
+    NavBar,
+    footerComponent
   }
 };
 </script>
@@ -60,9 +63,9 @@ export default {
   width: 400px;
   padding: 30px;
   margin-top: 40px;
-  border-radius: 20px;
+  border-radius: 30px;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
 }
 
 .input-label {

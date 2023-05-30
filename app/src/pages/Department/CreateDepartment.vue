@@ -10,15 +10,18 @@
         </div>
                 </createDepartment>
     </div>
+    <footerComponent></footerComponent>
 </template>
 
 <script>
 import createDepartment from '@/components/Department/createDepartment.vue';
 import NavBar from '../navbar.vue'
+import footerComponent from '../footer.vue'
 export default {
     components: {
         createDepartment,
-        NavBar
+        NavBar,
+        footerComponent
     }
 };
 </script>
@@ -33,8 +36,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 </style>

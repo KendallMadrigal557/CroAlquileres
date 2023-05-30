@@ -94,8 +94,8 @@ img {
 
 .card {
   background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  border-radius: 0.95rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -124,10 +124,5 @@ img {
   font-weight: 400;
 }
 
-.made_by {
-  font-weight: 400;
-  font-size: 13px;
-  margin-top: 35px;
-  text-align: center;
-}
+
 </style>

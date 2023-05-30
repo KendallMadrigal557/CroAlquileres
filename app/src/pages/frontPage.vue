@@ -11,24 +11,23 @@
 
     <section class="information">
       <h3 class="title">Información personal:</h3>
-      <p>Soy Kendall Madrigal Araya, tengo 19 años y soy estudiante del Colegio Universitario de Cartago, actualmente estudiando TI 
+      <p>Soy Kendall Madrigal Araya, tengo 19 años y soy estudiante del Colegio Universitario de Cartago, actualmente
+        estudiando TI
         este es un proyecto de Progrmación V en cual estuve aplicando algunos conocimientos de VUE
       </p>
       <hr>
     </section>
-    
-    <footer>
-      <!--Template made by Pardeep Singh-->
-      <p>Project made by Kendall Madrigal</p>
-    </footer>
   </div>
+  <footerComponent/>
 </template>
 <script>
 import navbar from './navbar.vue';
+import footerComponent from './footer.vue'
 
 export default {
   components: {
-    navbar
+    navbar,
+    footerComponent
   },
   data() {
     return {
@@ -120,14 +119,14 @@ header {
 
 @-webkit-keyframes fadein {
   100% {
-    background: linear-gradient(rgba(5,7,12, 0.75),rgba(5,7,12, 0.75));
+    background: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.75));
     opacity: 1;
   }
 }
 
 @keyframes fadein {
   100% {
-    background: linear-gradient(rgba(5,7,12, 0.75),rgba(5,7,12, 0.75));
+    background: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.75));
     opacity: 1;
   }
 }
@@ -152,7 +151,7 @@ header nav li {
 
 
 .hero {
-  background: linear-gradient(rgba(5,7,12, 0.75),rgba(5,7,12, 0.75));
+  background: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.75));
   position: relative;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -284,6 +283,7 @@ hr {
   }
 
 }
+
 @media (max-width: 1000px) {
   header {
     padding: 20px 50px;
@@ -303,13 +303,15 @@ hr {
     margin-bottom: 15px;
   }
 }
+
 @media (max-width: 700px) {
 
-footer {
-  padding: 80px 15px;
-}
+  footer {
+    padding: 80px 15px;
+  }
 
 }
+
 section h3.title {
   text-transform: capitalize;
   font: bold 32px "Open Sans", sans-serif;
@@ -330,54 +332,4 @@ section h3.title {
   -ms-flex-preferred-size: 30%;
   flex-basis: 30%;
 }
-
-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  background-color: #414a4f;
-  padding: 60px 0;
-}
-
-footer ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 25px;
-  font-size: 32px;
-}
-
-footer ul li {
-  margin: 0 8px;
-}
-
-footer ul li:first-child {
-  margin-left: 0;
-}
-
-footer ul li:last-child {
-  margin-right: 0;
-}
-
-footer p {
-  text-transform: uppercase;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 10px;
-}
-
-footer p a {
-  color: #fff;
-}
-
-
 </style>
