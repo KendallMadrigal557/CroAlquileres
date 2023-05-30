@@ -5,7 +5,7 @@
           <div class="card_content">
             <h2 class="card_title">Las 3 maravillas</h2>
             <p class="card_text">Puntarenas, Costa Rica</p>
-            <button class="button card_btn">Ver detalles</button>
+            <router-link to="/details-department" class="register-department-button"><button class="button card_btn">Ver detalles</button></router-link>
           </div>
         </div>
       </li>

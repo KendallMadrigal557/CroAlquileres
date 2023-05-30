@@ -1,7 +1,6 @@
 import axios from 'axios';
-require('dotenv').config();
 
-const BASE_URL = `${SERVER_HOST}/api`;
+const BASE_URL = `http://localhost:3001/api`;
 
 class UserService {
     constructor() {
