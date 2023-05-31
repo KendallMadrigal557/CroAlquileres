@@ -5,7 +5,6 @@ const multer = require('multer');
 
 const userSchema = require('../models/user.model')
 
-const multerConfig = require('../config/multerConfig');
 
 router.use(cors());
 
