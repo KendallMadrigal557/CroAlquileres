@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { urlServer } from '@/config/config';
+import { urlServer } from '../config/config';
 
 class departmentService {
     constructor() {

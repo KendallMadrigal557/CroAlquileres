@@ -50,10 +50,8 @@ export default {
             try {
                 const userService = new UserService();
 
-                // Convertir el correo electrónico a minúsculas
                 const emailLowerCase = this.email.toLowerCase();
 
-                // Verificar si el correo electrónico ya existe
                 const users = await userService.getUsers();
                 const existingUser = users.find(user => user.email === emailLowerCase);
                 if (existingUser) {

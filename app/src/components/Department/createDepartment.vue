@@ -73,11 +73,12 @@ export default {
     methods: {
         async handleSubmit() {
             try {
+                const DeparmentService = new departmentService();
                 const departmentData = { ...this.department };
                 const imageFile = this.department.image;
                 delete departmentData.image;
 
-                const response = await departmentService.createDepartment(departmentData, imageFile);
+                const response = await DeparmentService.createDepartment(departmentData, imageFile);
                 console.log('Department created:', response);
                 alert("Se logró registrar correctamente su departamento.")
             } catch (error) {

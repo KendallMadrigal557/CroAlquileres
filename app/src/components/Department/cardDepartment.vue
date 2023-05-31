@@ -17,6 +17,7 @@
 
 <script>
 import { urlServer } from '@/config/config.js';
+import { urlServerUploads } from '@/config/config.js';
 export default {
   name: 'CardDepartment',
   data() {
@@ -29,7 +30,7 @@ export default {
   },
   methods: {
     fetchDepartmentData() {
-      fetch(`${urlServer}/api/department`) 
+      fetch(`${urlServer}/department`) 
         .then(response => response.json())
         .then(data => {
           this.departments = data;
@@ -39,7 +40,7 @@ export default {
         });
     },
     getImageUrl(imageName) {
-      return `${urlServer}/uploads/${imageName}`;
+      return `${urlServerUploads}/uploads/${imageName}`;
     }
   }
 };
