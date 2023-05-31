@@ -9,7 +9,8 @@
                 <label for="password" class="input-label">Contraseña:</label>
                 <input v-model="password" type="password" placeholder="8 caracteres requeridos" required pattern=".{8,}">
                 <label for="confirm_password" class="input-label">Confirmar contraseña:</label>
-                <input v-model="confirm_password" type="password" placeholder="8 caracteres requeridos" required pattern=".{8,}">
+                <input v-model="confirm_password" type="password" placeholder="8 caracteres requeridos" required
+                    pattern=".{8,}">
                 <button type="submit" class="submit-button">Registrarse</button>
             </form>
         </div>
@@ -35,35 +36,52 @@ export default {
 
             const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
             if (!nameRegex.test(this.name)) {
-                console.error('Error: El nombre solo puede contener letras y espacios.');
+                alert('Error: El nombre solo puede contener letras y espacios.');
+                window.location.reload()
                 return;
             }
 
             if (this.password !== this.confirm_password) {
-                console.error('Error: Las contraseñas no coinciden.');
+                alert('Error: Las contraseñas no coinciden.');
+                window.location.reload()
                 return;
             }
 
             try {
                 const userService = new UserService();
+
+                // Convertir el correo electrónico a minúsculas
+                const emailLowerCase = this.email.toLowerCase();
+
+                // Verificar si el correo electrónico ya existe
+                const users = await userService.getUsers();
+                const existingUser = users.find(user => user.email === emailLowerCase);
+                if (existingUser) {
+                    alert('Error: El correo electrónico ya está registrado.');
+                    window.location.reload()
+                    return;
+                }
+
                 const newUser = {
                     name: this.name,
-                    email: this.email,
+                    email: emailLowerCase,
                     password: this.password
                 };
                 const createdUser = await userService.createUser(newUser);
                 console.error('User registered:', createdUser);
-                alert('Se registró correctamente.')
+                alert('Se registró correctamente.');
+                window.location.reload()
 
             } catch (error) {
                 console.error('Error registering user:', error);
-                alert('Error: No se logró registrar. Por favor, revise sus datos.')
-
+                alert('Error: No se logró registrar. Por favor, revise sus datos.');
+                window.location.reload()
             }
         }
     }
 };
 </script>
+
 <style scoped>
 .container {
     display: flex;
@@ -106,8 +124,8 @@ select {
 .submit-button {
     margin-top: 12px;
     padding: 16px 10px;
-    background: rgb(80,106,131);
-    background: linear-gradient(90deg, rgba(80,106,131,1) 0%, rgba(99,131,80,1) 50%, rgba(80,106,131,1) 100%);
+    background: rgb(80, 106, 131);
+    background: linear-gradient(90deg, rgba(80, 106, 131, 1) 0%, rgba(99, 131, 80, 1) 50%, rgba(80, 106, 131, 1) 100%);
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
@@ -119,8 +137,8 @@ select {
 }
 
 .submit-button:hover {
-    background: rgb(80,106,131);
-    background: linear-gradient(90deg, rgba(80,106,131,1) 0%, rgba(99,131,80,1) 50%, rgba(80,106,131,1) 100%);
+    background: rgb(80, 106, 131);
+    background: linear-gradient(90deg, rgba(80, 106, 131, 1) 0%, rgba(99, 131, 80, 1) 50%, rgba(80, 106, 131, 1) 100%);
 }
 
 input[type="file"] {

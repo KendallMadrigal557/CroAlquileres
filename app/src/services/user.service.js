@@ -1,10 +1,9 @@
 import axios from 'axios';
-
-const BASE_URL = `http://localhost:3001/api`;
+import { urlServer } from '@/config/config';
 
 class UserService {
     constructor() {
-        this.baseUrl = BASE_URL;
+        this.baseUrl = urlServer;
     }
 
     async createUser(user) {

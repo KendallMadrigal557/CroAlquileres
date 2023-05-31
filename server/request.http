@@ -46,3 +46,7 @@ Content-Type: application/json
   "email": "johndoe@example.com",
   "password": "secretpassword"
 }
+
+###
+DELETE http://localhost:3001/api/user/647798ec9824b0744526626e HTTP/1.1
+

@@ -1,20 +1,47 @@
 <template>
-      <li class="cards_item">
-        <div class="card">
-          <div class="card_image"><img src="../../assets/ejemplo.jpg" /></div>
-          <div class="card_content">
-            <h2 class="card_title">Las 3 maravillas</h2>
-            <p class="card_text">Puntarenas, Costa Rica</p>
-            <router-link to="/details-department" class="register-department-button"><button class="button card_btn">Ver detalles</button></router-link>
-          </div>
-        </div>
-      </li>
+  <li class="cards_item" v-for="dept in departments" :key="dept._id">
+    <div class="card">
+      <div class="card_image">
+        <img :src="getImageUrl(dept.image)" class="department_image" />
+      </div>
+      <div class="card_content">
+        <h2 class="card_title">{{ dept.place }}</h2>
+        <p class="card_text">{{ dept.location }}</p>
+        <router-link to="/details-department" class="register-department-button">
+          <button class="button card_btn">Ver detalles</button>
+        </router-link>
+      </div>
+    </div>
+  </li>
 </template>
 
 <script>
+import { urlServer } from '@/config/config.js';
 export default {
-    name: 'CardDepartment',
-    
+  name: 'CardDepartment',
+  data() {
+    return {
+      departments: []
+    };
+  },
+  mounted() {
+    this.fetchDepartmentData();
+  },
+  methods: {
+    fetchDepartmentData() {
+      fetch(`${urlServer}/api/department`) 
+        .then(response => response.json())
+        .then(data => {
+          this.departments = data;
+        })
+        .catch(error => {
+          console.error('Error al obtener los datos de los departamentos:', error);
+        });
+    },
+    getImageUrl(imageName) {
+      return `${urlServer}/uploads/${imageName}`;
+    }
+  }
 };
 </script>
 
@@ -55,7 +82,11 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
-
+.department_image {
+  width: 450px;
+  height: 250px; 
+  object-fit: cover;
+}
 .button {
   color: #ffffff;
   padding: 0.8rem;
