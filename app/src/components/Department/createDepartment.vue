@@ -50,6 +50,7 @@
                 </div>
                 <button class="submit-button" type="submit">Registrar departamento</button>
             </form>
+            <div v-if="error" class="error">{{ error }}</div>
         </div>
     </div>
 </template>
@@ -61,6 +62,7 @@ export default {
     name: 'createDepartment',
     data() {
         return {
+            error:'',
             department: {
                 place: '',
                 price: 0,
@@ -83,8 +85,7 @@ export default {
                 const imageFile = this.department.image;
                 delete departmentData.image;
                 if (departmentData.price <= 0 || departmentData.rooms <= 0){
-                    alert(`El precio y las habitaciones deben ser mayores a cero`)
-                    window.location.reload()
+                    this.error = `El precio y las habitaciones deben ser mayores a cero`
                     return;
                 }
 
@@ -189,5 +190,10 @@ select {
 
 .file-input-label:hover {
     background-color: rgb(230, 230, 230);
+}
+
+.error {
+    margin-top: 20px;
+    color: red;
 }
 </style>

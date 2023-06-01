@@ -13,6 +13,7 @@
                     pattern=".{8,}">
                 <button type="submit" class="submit-button">Registrarse</button>
             </form>
+            <div v-if="error" class="error">{{ error }}</div>
         </div>
     </div>
 </template>
@@ -27,7 +28,8 @@ export default {
             name: '',
             email: '',
             password: '',
-            confirm_password: ''
+            confirm_password: '',
+            error: ''
         };
     },
     methods: {
@@ -36,18 +38,16 @@ export default {
 
             const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/;
             if (!nameRegex.test(this.name)) {
-                alert('Error: El nombre solo puede contener letras y espacios.');
-                window.location.reload()
+                this.error = 'El nombre solo puede contener letras y espacios.';
                 return;
             }
 
-            if (this.password !== this.confirm_password ) {
-                alert('Error: Las contraseñas no coinciden.');
-                window.location.reload()
+            if (this.password !== this.confirm_password) {
+                this.error = 'Error: Las contraseñas no coinciden.';
                 return;
             }
-            if (this.password.length < 8 || this.confirm_password.length < 8){
-                alert(`La contraseña tiene que contener más de 8 caracteres`)
+            if (this.password.length < 8 || this.confirm_password.length < 8) {
+                this.error = `La contraseña tiene que contener más de 8 caracteres`;
                 return;
             }
 
@@ -60,7 +60,6 @@ export default {
                 const existingUser = users.find(user => user.email === emailLowerCase);
                 if (existingUser) {
                     alert('Error: El correo electrónico ya está registrado.');
-                    window.location.reload()
                     return;
                 }
 
@@ -72,7 +71,7 @@ export default {
                 const createdUser = await userService.createUser(newUser);
                 console.error('User registered:', createdUser);
                 alert('Se registró correctamente.');
-                window.location.reload()
+                this.$router.push('/login')
 
             } catch (error) {
                 console.error('Error registering user:', error);
@@ -171,5 +170,10 @@ input[type="file"] {
 
 .file-input-label:hover {
     background-color: rgb(230, 230, 230);
+}
+
+.error {
+    margin-top: 20px;
+    color: red;
 }
 </style>
