@@ -41,9 +41,13 @@ export default {
                 return;
             }
 
-            if (this.password !== this.confirm_password) {
+            if (this.password !== this.confirm_password ) {
                 alert('Error: Las contraseñas no coinciden.');
                 window.location.reload()
+                return;
+            }
+            if (this.password.length < 8 || this.confirm_password.length < 8){
+                alert(`La contraseña tiene que contener más de 8 caracteres`)
                 return;
             }
 

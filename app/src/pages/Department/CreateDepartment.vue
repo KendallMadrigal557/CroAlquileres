@@ -1,14 +1,14 @@
 <template>
     <div>
         <NavBar></NavBar>
-                <createDepartment>
-                    <div class="main">
-            <h1>Hola</h1>
-            <ul class="cards">
-                
-            </ul>
-        </div>
-                </createDepartment>
+        <createDepartment>
+            <div class="main">
+                <h1>Hola</h1>
+                <ul class="cards">
+
+                </ul>
+            </div>
+        </createDepartment>
     </div>
     <footerComponent></footerComponent>
 </template>
@@ -27,15 +27,14 @@ export default {
 </script>
 
 <style>
-
 .main {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
 </style>

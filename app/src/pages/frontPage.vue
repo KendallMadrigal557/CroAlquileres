@@ -11,14 +11,18 @@
 
     <section class="information">
       <h3 class="title">Información personal:</h3>
-      <p>Soy Kendall Madrigal Araya, tengo 19 años y soy estudiante del Colegio Universitario de Cartago, actualmente
-        estudiando TI
-        este es un proyecto de Progrmación V en cual estuve aplicando algunos conocimientos de VUE
-      </p>
+      <div class="personal-information">
+        <p>Soy Kendall Madrigal Araya, tengo 19 años y soy estudiante del Colegio Universitario de Cartago, actualmente
+          estudiando TI
+          este es un proyecto de Programación V en cual estuve aplicando algunos conocimientos de VUE.<br>
+          Estoy en el segundo año de la carrera, actualmente me dedico a estudiar JavaScript, VueJs, Mongodb,
+          TypeScript.<br>
+        </p>
+      </div>
       <hr>
     </section>
   </div>
-  <footerComponent/>
+  <footerComponent />
 </template>
 <script>
 import navbar from './navbar.vue';
@@ -319,6 +323,12 @@ section h3.title {
   text-align: center;
 }
 
+.information p {
+  margin-bottom: 50px;
+}
+.personal-information{
+    width: 350px;
+  }
 
 .information .grid li {
   height: 350px;

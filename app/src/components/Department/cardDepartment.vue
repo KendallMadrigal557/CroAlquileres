@@ -7,9 +7,12 @@
       <div class="card_content">
         <h2 class="card_title">{{ dept.place }}</h2>
         <p class="card_text">{{ dept.location }}</p>
-        <router-link to="/details-department" class="register-department-button">
-          <button class="button card_btn">Ver detalles</button>
+        <router-link to="/details-department" class="register-department-button button card_btn">
+          <div class="button card_btn">
+            <span class="button-text">Ver detalles</span>
+          </div>
         </router-link>
+
       </div>
     </div>
   </li>
@@ -30,7 +33,7 @@ export default {
   },
   methods: {
     fetchDepartmentData() {
-      fetch(`${urlServer}/department`) 
+      fetch(`${urlServer}/department`)
         .then(response => response.json())
         .then(data => {
           this.departments = data;
@@ -48,10 +51,8 @@ export default {
 
 
 <style scoped>
-/* Font */
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
-/* Design */
 *,
 *::before,
 *::after {
@@ -83,29 +84,38 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
+
 .department_image {
   width: 450px;
-  height: 250px; 
+  height: 250px;
   object-fit: cover;
 }
-.button {
+
+.register-department-button {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.register-department-button .button {
   color: #ffffff;
   padding: 0.8rem;
   font-size: 14px;
   text-transform: uppercase;
   border-radius: 4px;
   font-weight: 400;
-  display: block;
-  width: 100%;
-  cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: transparent;
 }
 
-.button:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+.register-department-button .button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
+.register-department-button .button-text {
+  color: #ffffff;
+  text-decoration: none;
+}
 
 .cards_item {
   display: flex;
@@ -135,8 +145,8 @@ img {
 
 .card_content {
   padding: 1rem;
-  background: rgb(80,106,131);
-  background: linear-gradient(90deg, rgba(80,106,131,1) 0%, rgba(99,131,80,1) 50%, rgba(80,106,131,1) 100%);
+  background: rgb(80, 106, 131);
+  background: linear-gradient(90deg, rgba(80, 106, 131, 1) 0%, rgba(99, 131, 80, 1) 50%, rgba(80, 106, 131, 1) 100%);
 }
 
 .card_title {
@@ -155,6 +165,4 @@ img {
   margin-bottom: 1.25rem;
   font-weight: 400;
 }
-
-
 </style>

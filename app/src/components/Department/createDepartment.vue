@@ -3,11 +3,11 @@
         <div class="form-container">
             <form class="form" @submit.prevent="handleSubmit">
                 <div class="form-group">
-                    <label for="place" class="input-label">Lugar:</label>
+                    <label for="place" class="input-label">Nombre del lugar:</label>
                     <input type="text" id="place" v-model="department.place" required>
                 </div>
                 <div class="form-group">
-                    <label for="price" class="input-label">Precio:</label>
+                    <label for="price" class="input-label">Precio por mes: </label>
                     <input type="number" id="price" v-model="department.price" required>
                 </div>
                 <div class="form-group">
@@ -25,8 +25,8 @@
                 <div class="form-group">
                     <label for="status" class="input-label">Estado:</label>
                     <select id="status" v-model="department.status" required>
-                        <option value="true">Available</option>
-                        <option value="false">Unavailable</option>
+                        <option value="true">Disponible</option>
+                        <option value="false">Ocupado</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -44,7 +44,7 @@
                         <div class="file-input-label">Seleccionar archivo</div>
                     </div>
                 </div>
-                <button class="submit-button" type="submit">Registrar lugar</button>
+                <button class="submit-button" type="submit">Registrar departamento</button>
             </form>
         </div>
     </div>
@@ -77,13 +77,20 @@ export default {
                 const departmentData = { ...this.department };
                 const imageFile = this.department.image;
                 delete departmentData.image;
+                if (departmentData.price <= 0 || departmentData.rooms <= 0){
+                    alert(`El precio y las habitaciones deben ser mayores a cero`)
+                    window.location.reload()
+                    return;
+                }
 
                 const response = await DeparmentService.createDepartment(departmentData, imageFile);
                 console.log('Department created:', response);
                 alert("Se logró registrar correctamente su departamento.")
+                window.location.reload()
             } catch (error) {
                 console.error('Error creating department:', error);
                 alert("No se logró registrar su departamento, Por favor revise sus datos.")
+                window.location.reload()
             }
         },
         handleImageChange(event) {
