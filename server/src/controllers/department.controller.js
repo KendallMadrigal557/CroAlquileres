@@ -1,11 +1,11 @@
 const departmentSchema = require('../models/department.model');
 
 function validateDepartmentData(req, res, next) {
-    const { place, price, rooms, location, features, status, description, services } = req.body;
+    const { place, price, rooms, location, features, status, description, services , phone } = req.body;
     const allowedExtensions = ['jpg', 'png', 'jpeg'];
     const fileExtension = req.file && req.file.originalname.split('.').pop();
 
-    if (!place || !price || !rooms || !location || !features || !status || !description || !services) {
+    if (!place || !price || !rooms || !location || !features || !status || !description || !services || !phone) {
         return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
     }
 
@@ -26,6 +26,7 @@ function createDepartment(req, res) {
         status: req.body.status,
         description: req.body.description,
         services: req.body.services,
+        phone: req.body.phone,
         image: req.file.filename
     });
 
@@ -58,9 +59,9 @@ function getDepartmentById(req, res) {
 
 function updateDepartment(req, res) {
     const { id } = req.params;
-    const { place, price, rooms, location, features, status, description, services } = req.body;
+    const { place, price, rooms, location, features, status, description, services , phone} = req.body;
     departmentSchema
-        .findByIdAndUpdate(id, { $set: { place, price, rooms, location, features, status, description, services } }, { new: true })
+        .findByIdAndUpdate(id, { $set: { place, price, rooms, location, features, status, description, services , phone } }, { new: true })
         .then((data) => {
             if (!data) {
                 return res.status(404).json({ message: 'Departamento no encontrado.' });

@@ -38,6 +38,10 @@
                     <textarea id="services" v-model="department.services" required></textarea>
                 </div>
                 <div class="form-group">
+                    <label for="phone" class="input-label">Teléfono:</label>
+                    <input type="text" id="phone" v-model="department.phone" required>
+                </div>
+                <div class="form-group">
                     <label for="image" class="input-label">Imagen del lugar:</label>
                     <div class="file-input-container">
                         <input type="file" id="image" @change="handleImageChange" accept="image/jpeg, image/png, image/jpg" required>
@@ -66,6 +70,7 @@ export default {
                 status: true,
                 description: '',
                 services: '',
+                phone: 0,
                 image: null
             }
         };

@@ -9,6 +9,7 @@ const departmentSchema = new mongoose.Schema({
     status: { type: Boolean, required: true },
     description: { type: String, required: true },
     services: { type: String, required: true },
+    phone: { type: String, required: true },
     image: {type: String, required:true}
 });
 
