@@ -5,11 +5,11 @@
       <h2 class="input-label">Iniciar sesión</h2>
       <form @submit.prevent="login">
         <div class="form-group">
-          <label for="username" class="input-label">Username:</label>
-          <input type="text" id="username" v-model="username" placeholder="correo@gmail.com" required>
+          <label for="email" class="input-label">Correo:</label>
+          <input type="text" id="email" v-model="email" placeholder="correo@gmail.com" required>
         </div>
         <div class="form-group">
-          <label for="password" class="input-label">Password:</label>
+          <label for="password" class="input-label">Contraseña:</label>
           <input type="password" id="password" v-model="password" placeholder="Contraseña" required>
         </div>
         <div class="form-group">
@@ -25,22 +25,46 @@
 <script>
 import NavBar from '../navbar.vue'
 import footerComponent from '../footer.vue'
+import UserService from '../../services/user.service.js'; 
+
 export default {
   data() {
     return {
-      username: '',
+      email: '',
       password: '',
       error: ''
     };
   },
   methods: {
-    login() {
-
-      if (!this.username || !this.password) {
+    async login() {
+      if (!this.email || !this.password) {
         this.error = 'Por favor, ingresa tu nombre de usuario y contraseña';
         return;
       }
 
+      try {
+        const userService = new UserService();
+        const users = await userService.getUsers();
+        const user = users.find(user => user.email === this.email);
+
+        if (!user) {
+          this.error = 'Credenciales no validos';
+          return;
+        }
+
+        if (user.password !== this.password) {
+          this.error = 'Credenciales no validos';
+          return;
+        }
+
+        // this.$store.commit('setUser', user); 
+        // localStorage.setItem('user', JSON.stringify(user));
+        alert('Se inicio sesión correctamente')
+        this.$router.push('/');
+      } catch (error) {
+        alert('Error en el inicio de sesión:', error);
+        this.error = 'Error en el inicio de sesión';
+      }
     }
   },
   components: {
