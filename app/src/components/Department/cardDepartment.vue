@@ -1,53 +1,51 @@
 <template>
   <li class="cards_item" v-for="dept in departments" :key="dept._id">
-    <div class="card">
-      <div class="card_image">
-        <img :src="getImageUrl(dept.image)" class="department_image" />
-      </div>
-      <div class="card_content">
-        <h2 class="card_title">{{ dept.place }}</h2>
-        <p class="card_text">{{ dept.location }}</p>
-        <router-link to="/details-department" class="register-department-button button card_btn">
-          <div class="button card_btn">
-            <span class="button-text">Ver detalles</span>
+      <div class="card">
+          <div class="card_image">
+              <img :src="getImageUrl(dept.image)" class="department_image" />
           </div>
-        </router-link>
-
+          <div class="card_content">
+              <h2 class="card_title">{{ dept.place }}</h2>
+              <p class="card_text">{{ dept.location }}</p>
+              <router-link :to="`/details-department/${dept._id}`" class="register-department-button button card_btn">
+                  <div class="button card_btn">
+                      <span class="button-text">Ver detalles</span>
+                  </div>
+              </router-link>
+          </div>
       </div>
-    </div>
   </li>
 </template>
 
 <script>
-import { urlServer } from '@/config/config.js';
-import { urlServerUploads } from '@/config/config.js';
+import departmentService from '../../services/department.service';
+import { urlServerUploads } from '@/config/config';
 export default {
   name: 'CardDepartment',
   data() {
-    return {
-      departments: []
-    };
+      return {
+          departments: []
+      };
   },
   mounted() {
-    this.fetchDepartmentData();
+      this.fetchDepartmentData();
   },
   methods: {
-    fetchDepartmentData() {
-      fetch(`${urlServer}/department`)
-        .then(response => response.json())
-        .then(data => {
-          this.departments = data;
-        })
-        .catch(error => {
-          console.error('Error al obtener los datos de los departamentos:', error);
-        });
-    },
-    getImageUrl(imageName) {
-      return `${urlServerUploads}/uploads/${imageName}`;
-    }
+      async fetchDepartmentData() {
+          try {
+              const service = new departmentService();
+              this.departments = await service.getDepartments();
+          } catch (error) {
+              console.error('Error al obtener los datos de los departamentos:', error);
+          }
+      },
+      getImageUrl(imageName) {
+          return `${urlServerUploads}/uploads/${imageName}`;
+      }
   }
 };
 </script>
+
 
 
 <style scoped>

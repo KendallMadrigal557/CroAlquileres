@@ -17,7 +17,7 @@ const routes = [
   { path: '/department', component: CardDepartment },
   { path: '/register', component: RegisterUser},
   { path: '/register-department', component: createDepartment},
-  { path: '/details-department', component: DetailsDepartment},
+  { path: '/details-department/:id', component: DetailsDepartment},
 ];
 
 const router = createRouter({

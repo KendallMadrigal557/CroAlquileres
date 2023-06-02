@@ -1,25 +1,77 @@
 <template>
     <div class="container">
         <div class="img-container">
-            <h3>Las 3 maravillas</h3>
-                <a href="#" class="department-image">
-                    <img src="../../assets/ejemplo.jpg" />
-                </a>
-                <div class="details">
-                    <div class="meta">
-                        <p>Lugar: <strong>Puntarenas, Costa Rica</strong></p>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore soluta sequi animi tempora voluptas ullam. Nulla reprehenderit alias expedita qui rem ab, incidunt hic quaerat adipisci dolorem, aspernatur saepe nihil.
-                    </p>
+            <h3>{{ department.place }}</h3>
+            <a href="#" class="department-image">
+                <img :src="getImageUrl(department.image)" />
+            </a>
+            <div class="details">
+                <div class="meta">
+                    <p>Lugar: <strong>{{ department.location }}</strong></p>
                 </div>
+                <div v-if="department.status === true">
+                    <p>Estado: <strong>Disponible</strong></p>
+                    <div class="info-card">
+                        <p>Descripción: {{ department.description }}</p>
+                    </div>
+                    <div class="info-card">
+                        <p>Servicios: {{ department.services }}</p>
+                    </div>
+                    <div class="info-card">
+                        <p>Precio: {{ department.price }}</p>
+                    </div>
+                    <div class="info-card">
+                        <p>Características: {{ department.features }}</p>
+                    </div>
+                </div>
+                <div v-else>
+                    <p>Estado: <strong>Ocupado</strong></p>
+                    <div class="info-card">
+                        <p>Descripción: {{ department.description }}</p>
+                    </div>
+                    <div class="info-card">
+                        <p>Servicios: {{ department.services }}</p>
+                    </div>
+                    <div class="info-card">
+                        <p>Precio: {{ department.price }}</p>
+                    </div>
+                    <div class="info-card">
+                        <p>Características: {{ department.features }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import departmentService from '../../services/department.service';
+import { urlServerUploads } from '@/config/config';
+
 export default {
     name: 'DetailsDepartment',
+    data() {
+        return {
+            department: {}
+        };
+    },
+    mounted() {
+        this.fetchDepartmentData();
+    },
+    methods: {
+        async fetchDepartmentData() {
+            try {
+                const departmentId = this.$route.params.id;
+                const service = new departmentService();
+                this.department = await service.getDepartmentById(departmentId);
+            } catch (error) {
+                console.error('Error al obtener los datos del departamento:', error);
+            }
+        },
+        getImageUrl(imageName) {
+            return `${urlServerUploads}/uploads/${imageName}`;
+        }
+    }
 };
 </script>
 
@@ -67,7 +119,7 @@ body {
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 1);
     overflow: hidden;
     padding: 1rem;
-    width: 100%;
+    width: 900px;
 }
 
 .department-image {
@@ -122,6 +174,21 @@ body {
     margin-bottom: 1rem;
 }
 
+
+.info-card {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.info-card-description {
+    background-color: #ffffff;
+    color: #272727;
+    font-weight: 700;
+}
+
 .button {
     color: #ffffff;
     padding: 0.8rem;
@@ -138,5 +205,11 @@ body {
 
 .button:hover {
     background-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 768px) {
+    .img-container {
+        width: 100%;
+    }
 }
 </style>
