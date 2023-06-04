@@ -3,7 +3,6 @@
         <NavBar></NavBar>
         <createDepartment>
             <div class="main">
-                <h1>Hola</h1>
                 <ul class="cards">
 
                 </ul>

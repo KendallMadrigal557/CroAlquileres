@@ -128,7 +128,7 @@ img {
 
 @media (min-width: 56rem) {
   .cards_item {
-    width: 25%;
+    width: 33.3333%;
   }
 }
 

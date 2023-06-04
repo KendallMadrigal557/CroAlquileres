@@ -1,7 +1,7 @@
 <template>
     <navbar></navbar>
     <div class="card-department-container">
-        <cardDepartment></cardDepartment>
+        <cardDepartment  v-for="index in 10" :key="index"></cardDepartment>
     </div>
     <footerComponent></footerComponent>
 </template>
